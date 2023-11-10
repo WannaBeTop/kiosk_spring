@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>예약 생성</title>
+</head>
+<body>
+<h2>예약 생성</h2>
+<form method="post" action="/createReservation">
+    <label for="userName">사용자 이름:</label>
+    <input type="text" id="username" name="username" required>
+    <br><br>
+    <label for="reservationDate">예약 날짜:</label>
+    <input type="date" id="reservationDate" name="reservationDate" required>
+    <br><br>
+    <label for="reservationTime">예약 시간:</label>
+    <input type="time" id="reservationTime" name="reservationTime" required>
+    <br><br>
+    <input type="submit" value="예약하기">
+</form>
+</body>
+</html>

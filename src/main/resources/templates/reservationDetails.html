@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservation Details</title>
+</head>
+<body>
+<h2>Reservation Details</h2>
+
+<p>Username: <span th:text="${reservation.username}"></span></p>
+<p>Date and Time: <span th:text="${#temporals.format(reservation.reservationDateTime, 'yyyy-MM-dd HH:mm')}"></span></p>
+<p>Status: <span th:text="${reservation.status}"></span></p>
+
+<form action="/reservation/{username}/updateStatus" method="post">
+  <label for="status">Update Status:</label>
+  <select id="status" name="status">
+    <option th:each="status : ${T(me.shindonghyeok.kiosk_main.domain.ReservationStatus).values()}"
+            th:value="${status}" th:text="${status}"></option>
+  </select>
+  <button type="submit">Update</button>
+</form>
+
+<form action="/reservation/{username}/delete" method="post">
+  <button type="submit">Delete</button>
+</form>
+
+<a href="/reservationList">Back to Reservation List</a>
+<a href="/createReservation">Back to Reservation</a>
+</body>
+</html>
